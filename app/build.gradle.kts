@@ -1,4 +1,3 @@
-```kotlin
 import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
 
 plugins {
@@ -23,19 +22,11 @@ android {
         applicationId = "com.aistudio.digitalone.ispnms"
         minSdk = 24
         targetSdk = 36
-
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    /*
-     * Release signing configuration.
-     *
-     * This is kept for future signed release builds.
-     * Debug builds DO NOT use this configuration.
-     */
     signingConfigs {
         create("release") {
             val keystorePath =
@@ -62,13 +53,6 @@ android {
             signingConfig = signingConfigs.getByName("release")
         }
 
-        /*
-         * IMPORTANT:
-         * Do NOT configure a custom debug.keystore here.
-         *
-         * Android Gradle Plugin will automatically use its
-         * standard debug signing configuration.
-         */
         debug {
         }
     }
@@ -95,14 +79,9 @@ android {
     }
 }
 
-/*
- * Configure the Secrets Gradle Plugin to use
- * .env and .env.example files.
- */
 secrets {
     propertiesFileName = ".env"
     defaultPropertiesFileName = ".env.example"
-
     ignoreList.add("FIREBASE_APPCHECK_DEBUG_TOKEN")
 }
 
@@ -114,7 +93,6 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(platform(libs.firebase.bom))
 
-    // AndroidX / Compose
     implementation(libs.androidx.activity.compose)
 
     implementation(libs.androidx.compose.material.icons.core)
@@ -132,28 +110,22 @@ dependencies {
 
     implementation(libs.androidx.navigation.compose)
 
-    // Room
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
 
-    // Networking
     implementation(libs.converter.moshi)
     implementation(libs.logging.interceptor)
     implementation(libs.moshi.kotlin)
     implementation(libs.okhttp)
     implementation(libs.retrofit)
 
-    // Firebase
     implementation(libs.firebase.ai)
     implementation(libs.firebase.appcheck.recaptcha)
     implementation(libs.firebase.appcheck.debug)
-    implementation(platform(libs.firebase.bom))
 
-    // Coroutines
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
 
-    // Tests
     testImplementation(libs.androidx.compose.ui.test.junit4)
     testImplementation(libs.androidx.core)
     testImplementation(libs.androidx.junit)
@@ -164,19 +136,15 @@ dependencies {
     testImplementation(libs.roborazzi.compose)
     testImplementation(libs.roborazzi.junit.rule)
 
-    // Android tests
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.runner)
 
-    // Debug dependencies
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-    // KSP
     "ksp"(libs.androidx.room.compiler)
     "ksp"(libs.moshi.kotlin.codegen)
 }
-```
