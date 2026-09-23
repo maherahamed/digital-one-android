@@ -1,0 +1,6 @@
+{
+  "name": "Digital One",
+  "description": "Digital One ISP Network Management System — digital twin for managing Internet & CATV network infrastructure, devices, fiber cables, cores, topology, GIS, optical budgets, faults, field operations, and inventory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
